@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Django Tutorial 2023</title>
+    <style>
+    table, th, td {
+  border: 1px solid black;
+    }
+    
+    </style>
+</head>
+<body>
+    <h1>Hey i am django Server ,Fuck you Mortal Brain!!!</h1>
+    <p>Hey this is coming from django Server</p>
+    <!-- {{peoples}} -->
+    <table class="container">
+        <tr>
+          <th>S.No</th>
+          <th>name</th>
+          <th>age</th>
+          <th>Can Vote</th>
+        </tr>
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td  {% if people.age < 18 %} style="background:red" {% endif %}>
+            {% if people.age >= 18 %}
+             Yes
+            {% else %}
+             No
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    <hr>
+    <h3 style="color:red">hope you are loving it :)</h3> 
+    <p>This is home Page</p>
+    <a href='/about'>
+      about      
+    </a>
+    <a href='/contact'>
+      contact   
+    </a>
+</body>
+</html>

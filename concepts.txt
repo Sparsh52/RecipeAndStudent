@@ -1,0 +1,187 @@
+We will be using manage.py to construct bridges and interact with django
+__init__.py file is for reading folder structure  
+ASGI-Asynchronous gateway Interface
+WSGI-Web server Gateway Interface
+WSGI.py,settings.py,urls.py are 
+APP related database things are handles by models.py
+django apps are reusable
+All logical things are done in views.py
+url.py includes things related to routing
+There are 2 views:
+(1)Class Based views
+(2)Function Based views
+Data is usually dyanamic and not static ,dyanamic means data is returned from server.And website is made of both dyanamic and static data
+dry principle dont repeat yourself
+https://www.geeksforgeeks.org/django-project-mvt-structure/
+https://www.geeksforgeeks.org/differences-between-django-vs-flask/
+CommandPrompt
+---------------------------------------------------------------------------------------
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django>pip install Django
+Collecting Django
+  Obtaining dependency information for Django from https://files.pythonhosted.org/packages/bf/8b/c38f2354b6093d9ba310a14b43a830fdf776edd60c2e25c7c5f4d23cc243/Django-4.2.5-py3-none-any.whl.metadata
+  Downloading Django-4.2.5-py3-none-any.whl.metadata (4.1 kB)
+Collecting asgiref<4,>=3.6.0 (from Django)
+  Obtaining dependency information for asgiref<4,>=3.6.0 from https://files.pythonhosted.org/packages/9b/80/b9051a4a07ad231558fcd8ffc89232711b4e618c15cb7a392a17384bbeef/asgiref-3.7.2-py3-none-any.whl.metadata
+  Downloading asgiref-3.7.2-py3-none-any.whl.metadata (9.2 kB)
+Collecting sqlparse>=0.3.1 (from Django)
+  Downloading sqlparse-0.4.4-py3-none-any.whl (41 kB)
+     ---------------------------------------- 41.2/41.2 kB 499.1 kB/s eta 0:00:00
+Collecting tzdata (from Django)
+  Using cached tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+Downloading Django-4.2.5-py3-none-any.whl (8.0 MB)
+   ---------------------------------------- 8.0/8.0 MB 19.0 MB/s eta 0:00:00
+Downloading asgiref-3.7.2-py3-none-any.whl (24 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, Django
+Successfully installed Django-4.2.5 asgiref-3.7.2 sqlparse-0.4.4 tzdata-2023.3
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django>python
+Python 3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34) [MSC v.1936 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import django
+>>> django.__version__
+'4.2.5'
+>>> ^Z
+
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django>django-admin startproject core
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django>cd core
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django\core>code .
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django\core>python manage.py startapp home
+
+(env) C:\Users\Sparsh.chawla\Desktop\Django\core>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+September 13, 2023 - 11:48:35
+Django version 4.2.5, using settings 'core.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[13/Sep/2023 11:49:49] "GET / HTTP/1.1" 200 10664
+Not Found: /favicon.ico
+[13/Sep/2023 11:49:50] "GET /favicon.ico HTTP/1.1" 404 2108
+C:\Users\Sparsh.chawla\Desktop\Django\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+September 13, 2023 - 11:54:07
+Django version 4.2.5, using settings 'core.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+C:\Users\Sparsh.chawla\Desktop\Django\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+September 13, 2023 - 11:57:11
+Django version 4.2.5, using settings 'core.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[13/Sep/2023 12:51:03] "GET / HTTP/1.1" 200 10664
+---------------------------------------------------------------------------------------------------------------------
+!4 September command CommandPrompt
+---------------------------------------------------------------------------------------------------------
+PS C:\Users\Sparsh.chawla\Desktop\Django\core> python manage.py shell
+Python 3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34) [MSC v.1936 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from home.models import *
+>>> student(name="sparsh",age=22,email="sparshchawla82@gmail.com",address="delhi")
+<student: student object (None)>
+>>> s=student(name="sparsh",age=22,email="sparshchawla82@gmail.com",address="delhi")
+>>> s
+<student: student object (None)>
+>>> s.save()
+>>> s
+<student: student object (1)>
+>>> s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com,address="delhi")
+  File "<console>", line 1
+    s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com,address="delhi")
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com",address="delhi")
+  File "<console>", line 1
+    s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com",address="delhi")
+                                                                                          ^ 
+SyntaxError: unterminated string literal (detected at line 1)
+>>> s=student.objects.create(name="sarthak",age=22,email="sarthak@gmail.com",address="delhi")
+>>> 
+SyntaxError: unterminated string literal (detected at line 1)
+>>> s=student.objects.create(name="sarthak",age=22,email="sarthak@gmail.com",address="delhi")
+>>> s
+<student: student object (2)>
+>>> Student.objects.all()
+Traceback (most recent call last):      
+  File "<console>", line 1, in <module> 
+NameError: name 'Student' is not defined
+>>> s.objects.all()
+Traceback (most recent call last):     
+  File "<console>", line 1, in <module>
+  File "C:\Users\Sparsh.chawla\Desktop\Django\env\Lib\site-packages\django\db\models\manager.py", line 186, in __get__
+    raise AttributeError(
+AttributeError: Manager isn't accessible via student instances
+>>> student.objects.all()
+<QuerySet [<student: student object (1)>, <student: student object (2)>]>
+ss="delhi")
+<student: student object (None)>
+>>> s=student(name="sparsh",age=22,email="sparshchawla82@gmail.com",address="delhi")
+>>> s
+<student: student object (None)>
+>>> s.save()
+>>> s
+<student: student object (1)>
+>>> s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com,address="delhi")
+  File "<console>", line 1
+    s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com,address="delhi")
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com",address="delhi")
+  File "<console>", line 1
+    s=student.objects.create(name="sarthak,age=22,email="sarthak@gmail.com",address="delhi")
+                                                                                          ^
+SyntaxError: unterminated string literal (detected at line 1)
+>>> s=student.objects.create(name="sarthak",age=22,email="sarthak@gmail.com",address="delhi")
+>>> s
+<student: student object (2)>
+>>> Student.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Student' is not defined
+>>> s.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\Sparsh.chawla\Desktop\Django\env\Lib\site-packages\django\db\models\manager.py", line 186, in __get__
+    raise AttributeError(
+AttributeError: Manager isn't accessible via student instances
+>>> student.objects.all()
+<QuerySet [<student: student object (1)>, <student: student object (2)>]>
+>>> student.objects.all()[0]
+<student: student object (1)>
+>>> student.objects.all()[1].name
+'sarthak'
+>>> student.objects.all()[1].email]
+  File "<console>", line 1
+    student.objects.all()[1].email]
+                                  ^
+SyntaxError: unmatched ']'
+>>> student.objects.all()[1].email 
+'sarthak@gmail.com'
+>>>   
+-------------------------------------------------------------------------------------------------------------
