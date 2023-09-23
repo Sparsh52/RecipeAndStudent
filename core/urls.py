@@ -33,7 +33,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('delete-recepie/<id>/',delete_recepie,name="delete_recepie"),
     path('update-recepie/<id>/',update_recepie,name="update_recepie"),
-    path('logout',logout_page,name="logout_page")
+    path('logout',logout_page,name="logout_page"),
+    path('students',get_students,name="get_students"),
+    path('check-marks/<student_id>/',see_marks,name="see_marks")
+
 ]
 
 if settings.DEBUG:
