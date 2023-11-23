@@ -13,6 +13,8 @@ from django.db.models import Sum
 from .seed import generate_report_card
 
 
+
+
 @login_required(login_url='/login')
 def recepies(request):
     if request.method == 'POST':

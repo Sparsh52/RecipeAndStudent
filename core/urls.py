@@ -27,7 +27,7 @@ urlpatterns = [
     path('about',about,name='about'),
     path('contact',contact,name='contact'),
     path('success-page',success_page,name='success_page'),
-    path('',home,name='home'),
+    path('/',home,name='home'),
     path('login',login_page,name='login_page'),
     path('register',register,name='register'),
     path('admin/', admin.site.urls),

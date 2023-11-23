@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-
+import dj_database_url
 from pathlib import Path
 import os
 
@@ -28,6 +28,9 @@ SECRET_KEY = 'django-insecure-!ld0)yuav=ry2=10)giv_ayj=09fbc703pup6tn2&p1m4q=*@(
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# AUTH_USER_MODEL='accounts.Customuser'
+
 
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
@@ -57,7 +60,6 @@ INSTALLED_APPS = [
 EXTERNAL_APPS=[
     'home',
     'vege',
-    'accounts'
 ]
 INSTALLED_APPS += EXTERNAL_APPS
 #or you can add home to installed apps
@@ -96,14 +98,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES={
+    "default": dj_database_url.config(default="postgres://testdb_1qdt_user:mQ0cvIL3Mz02kn1pnvv1GXhgFTDyOUWZ@dpg-clfhq96f27hc739clqrg-a.oregon-postgres.render.com/testdb_1qdt")
+
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
